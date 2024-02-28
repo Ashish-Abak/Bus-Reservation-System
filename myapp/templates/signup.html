@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-4 mt-5 card p-3 shadow" style="border-radius: 20px;">
+            <form action="{% url 'signup' %}" method="post">
+                <h2 class="text-center">Sign up!</h2>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="einput" class="col-form-label">Email:</label>
+                    <input name='email' class="form-control" type="text" id="einput" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="uinput" class="col-form-label">Username:</label>
+                    <input name='name' class="form-control" type="text" id="uinput" placeholder="Enter Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="pinput" class="col-form-label">Password:</label>
+                    <input name='password' class="form-control" type="text" id="pinput" placeholder="Enter password" required>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success w-75">Sign up</button>
+                    <p>Already a User! <a href="/signin">Log In</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-center rounded-5">
+        <h2 class="mt-5 text-center w-50 bg-primary text-light" style="border-radius: 10px;">Welcome to AshBus Reservation</h2>
+    </div>
+    <div class="row">
+            <div class="col-sm-4 mx-auto mt-5 p-3 card shadow" style="border-radius: 20px;">
+                <h2 class="text-center">Log in</h2>
+
+                <form action="{% url 'signin' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="uinput" class="col-form-label">Username:</label><br>
+                        <input name='name' class="form-control" type="text" id="uinput" placeholder="Enter Username">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Password:</label><br>
+                        <input name='password' class="form-control" type="password" placeholder="Enter Password">
+                    </div>
+                    <div class="pull-right text-center">
+                        <button type="Submit" class="btn btn-success w-75">Sign in</button>
+                        <p>New User! <a href="/signup">Sign Up</a></p>
+                    </div>
+
+                </form>
+                <p class="text-danger">{{error}}</p>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

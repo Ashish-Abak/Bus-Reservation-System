@@ -1,0 +1,74 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>Bus Reservation System</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}" style="color: white;">AshBus</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="w-100 d-flex" id="navbarNavAltMarkup">
+            
+                <div class="navbar-nav w-75">
+                    <a class="nav-item nav-link active" href="{% url 'home' %}" style="color: white;">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{% url 'findbus' %}" style="color: white;">Find Bus</a>
+                    <a class="nav-item nav-link" href="{% url 'seebookings' %}" style="color: white;">See Bookings</a>
+                    <a class="nav-item nav-link" href="{% url 'contact' %}" style="color: white;">Contact</a>
+                    <a class="nav-item nav-link" href="{% url 'about' %}" style="color: white;">About</a>
+                </div>
+                <div class="navbar-nav w-25 d-flex justify-content-end">
+                    {% if request.user.is_active %}
+                    <a class="nav-item nav-link" href="{% url 'signout' %}" style="color: white;">Sign out</a>
+                    {% else %}
+                    <a class="nav-item nav-link " href="{% url 'signup' %}" style="color: white;">Sign Up</a>
+                    {% endif %}
+                </div>
+
+
+            
+        </div>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+<br>
+<div class="row mt-5 px-5">
+    <div class="col-md-3">
+        <h5 class="">Address</h5><hr>
+            <p class="pl-3">AshBus India Private Limited. <br>
+                F-7010/7020, Solitaire Business Hub, <br>
+                Sr. No.207 Opp. NECO Garden Society, <br>
+                Viman Nagar, Pune <br>
+                Maharashtra – 411014</p>
+
+    </div>
+    <div class="col-md-3">
+        <h5>About AshBus</h5><hr>
+        <p><a href="/about" class="nav-link text-dark">About Us</a></p>
+        <p><a href="/contact" class="nav-link text-dark">Contact Us</a></p>
+    </div>
+    <div class="col-md-3">
+        <h5>Traveller Tools</h5><hr>
+        <p><a href="#" class="nav-link text-dark">Track Bus</a></p>
+    </div>
+    <div class="col-md-3">
+        <h5>Legel</h5><hr>
+        <p><a href="/TC" class="nav-link text-dark">T&C</a></p>
+        <p><a href="/pp" class="nav-link text-dark">Privacy Policy</a></p>
+    </div>
+</div>
+</body>
+</html>
